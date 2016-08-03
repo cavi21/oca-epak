@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
 <ROWS>
 	<cabecera ver="1.0" nrocuenta="<%= account_number %>" />
-	<retiro calle="<%= pickup['calle'] %>" nro="<%= pickup['numero'] %>" piso="<%= pickup['piso'] %>" depto="<%= pickup['departamento'] %>" cp="<%= pickup['cp'] %>" localidad="<%= pickup['localidad'] %>" provincia="<%= pickup['provincia'] %>" contacto="<%= pickup['solicitante'] %>" email="<%= pickup['email'] %>" solicitante="<%= pickup['solicitante'] %>" observaciones="<%= pickup['observaciones'] %>" centrocosto="<% if pickup['centro_de_costo'] %><%= pickup['centro_de_costo'] %><% else %>0<% end %>" />
+	<retiro calle="<%= pickup['calle'] %>" nro="<%= pickup['numero'] %>" piso="<%= pickup['piso'] %>" depto="<%= pickup['departamento'] %>" cp="<%= pickup['cp'] %>" localidad="<%= pickup['localidad'] %>" provincia="<%= pickup['provincia'] %>" contacto="<%= pickup['solicitante'] %>" email="<%= pickup['email'] %>" solicitante="<%= pickup['solicitante'] %>" observaciones="<%= pickup['observaciones'] %>" centrocosto="<%= pickup['centro_de_costo'] || 0 %>" />
 	<envios>
     <%- shipments.each do |shipment| -%>
 		<envio idoperativa="<%= shipment['id_operativa'] %>" nroremito="<%= shipment['numero_remito'] %>">

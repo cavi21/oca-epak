@@ -47,6 +47,28 @@ module Oca
         parse_result(response, :ingreso_or)
       end
 
+      # Creates multiple Pickups or Admisions (Deliveries) Orders, which lets OCA know you want to
+      # make some deliveries grouped by origin.
+      #
+      # @see https://github.com/ombulabs/oca-epak/blob/master/doc/OCAWebServices.pdf
+      #
+      # @param [Hash] opts
+      # @option opts [Oca::Epak::MultipleDeliveriesData] :deliveries_data Multiple Deliveries Data
+      # object
+      # @option opts [Boolean] :confirm_deliveries Confirm Deliveries? Defaults to false
+      # @return [Hash, nil]
+      def create_multiple_delivery_orders(opts = {})
+        confirm_deliveries = opts.fetch(:confirm_deliveries, FALSE_STRING)
+        rendered_xml = opts[:deliveries_data].to_xml
+
+        message = { USER_STRING => username, PASSWORD_STRING => password,
+                    "xml_Datos" => rendered_xml,
+                    "ConfirmarRetiro" => confirm_deliveries.to_s }
+
+        response = client.call(:ingreso_or_multiples_retiros, message: message)
+        parse_result(response, :ingreso_or_multiples_retiros)
+      end
+
       # Get rates and delivery estimate for a shipment
       #
       # @param [Hash] opts

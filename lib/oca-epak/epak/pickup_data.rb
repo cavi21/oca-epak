@@ -1,7 +1,7 @@
 module Oca
   module Epak
     class PickupData
-      PATH_TO_XML = File.expand_path("../retiro.xml.erb", __FILE__).freeze
+      PATH_TO_XML = File.expand_path("../templates/pickup.xml.erb", __FILE__).freeze
 
       attr_accessor :account_number, :pickup, :shipments
 

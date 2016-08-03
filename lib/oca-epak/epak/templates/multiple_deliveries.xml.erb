@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<ROWS>
+	<cabecera ver="2.0" nrocuenta="<%= account_number %>" />
+	<origenes>
+		<%- deliveries.each do |origin, shipments| -%>
+		<origen calle="<%= origin['calle'] %>" nro="<%= origin['numero'] %>" piso="<%= origin['piso'] %>" depto="<%= origin['departamento'] %>" cp="<%= origin['cp'] %>" localidad="<%= origin['localidad'] %>" provincia="<%= origin['provincia'] %>" contacto="<%= origin['contacto'] %>" email="<%= origin['email'] %>" solicitante="<%= origin['solicitante'] %>" observaciones="<%= origin['observaciones'] %>" centrocosto="<%= origin['centro_de_costo'] || 1 %>" <% if origin['id_centro_de_imposicion'] %> idcentroimposicionorigen="<%= origin['id_centro_de_imposicion']%>" <% end %> fecha="<%= origin['fecha'] || Time.now.strftime('%Y%m%d')  %>" idfranjahoraria="<%= origin['id_franja_horaria'] || 1 %>">
+			<envios>
+				<%- shipments.each do |shipment| -%>
+				<envio idoperativa="<%= shipment['id_operativa'] %>" nroremito="<%= shipment['numero_remito'] %>">
+					<destinatario apellido="<%= shipment['destinatario']['apellido'] %>" nombre="<%= shipment['destinatario']['nombre'] %>" calle="<%= shipment['destinatario']['calle'] %>" nro="<%= shipment['destinatario']['numero'] %>" piso="<%= shipment['destinatario']['piso'] %>" depto="<%= shipment['destinatario']['departamento'] %>" cp="<%= shipment['destinatario']['cp'] %>" localidad="<%= shipment['destinatario']['localidad'] %>" provincia="<%= shipment['destinatario']['provincia'] %>" telefono="<%= shipment['destinatario']['telefono'] %>" email="<%= shipment['destinatario']['email'] %>" celular="<%= shipment['destinatario']['celular'] %>" idci="<%= shipment['destinatario']['idci'] || 0 %>" observaciones="<%= shipment['destinatario']['observaciones'] %>"/>
+					<paquetes>
+						<%- shipment['paquetes'].each do |package|-%>
+						<paquete alto="<%= package['alto'] %>" ancho="<%= package['ancho'] %>" largo="<%= package['largo'] %>" peso="<%= package['peso'] %>" valor="<%= package['valor_declarado'] %>" cant="<%= package['cantidad'] %>" />
+						<%- end -%>
+					</paquetes>
+				</envio>
+				<%- end -%>
+			</envios>
+    </origen>
+    <%- end -%>
+  </origenes>
+</ROWS>

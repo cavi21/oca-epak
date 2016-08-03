@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    oca-epak (1.5.0)
+    oca-epak (1.6.0)
       savon (~> 2.11)
 
 GEM
@@ -11,7 +11,7 @@ GEM
     akami (1.3.1)
       gyoku (>= 0.4.0)
       nokogiri
-    ast (2.2.0)
+    ast (2.3.0)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -29,7 +29,7 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     nori (2.6.0)
-    parser (2.3.0.7)
+    parser (2.3.1.2)
       ast (~> 2.2)
     powerpack (0.1.1)
     pry (0.10.1)
@@ -61,7 +61,7 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
-    ruby-progressbar (1.7.5)
+    ruby-progressbar (1.8.1)
     safe_yaml (1.0.4)
     savon (2.11.1)
       akami (~> 1.2)
@@ -72,7 +72,7 @@ GEM
       nori (~> 2.4)
       wasabi (~> 3.4)
     slop (3.6.0)
-    unicode-display_width (1.0.3)
+    unicode-display_width (1.1.0)
     vcr (2.9.3)
     wasabi (3.5.0)
       httpi (~> 2.0)

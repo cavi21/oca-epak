@@ -1,0 +1,2208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="#Oca_e_Pak" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s2="#Oca_e_Pak/AbstractTypes" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="#Oca_e_Pak" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicios Web Públicos de OCA Express Pak</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="#Oca_e_Pak">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="List_Envios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUIT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FechaDesde" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FechaHasta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="List_EnviosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="List_EnviosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tracking_Pieza">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NroDocumentoCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CUIT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pieza" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tracking_PiezaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tracking_PiezaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tracking_PiezaExtendido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NroDocumentoCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CUIT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pieza" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tracking_PiezaExtendidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tracking_PiezaExtendidoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tracking_PiezaNumeroEnvio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pieza" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tracking_PiezaNumeroEnvioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tracking_PiezaNumeroEnvioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEpackUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="psw" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEpackUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEpackUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserFromLoginData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserFromLoginDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserFromLoginDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCentrosImposicionConServicios">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCentrosImposicionConServiciosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCentrosImposicionConServiciosResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="psw" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoginDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLoginDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEPackUserForMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEPackUserForMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEPackUserForMailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ordenretiro_CSV2XML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Archivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NroCuenta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Separador" type="tns:ArrayOfChar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfChar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="char" type="s1:char" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Ordenretiro_CSV2XMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ordenretiro_CSV2XMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetORResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCabecera" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Psw" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetORResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetORResultResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProvincias">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProvinciasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProvinciasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCodigosPostalesXCentroImposicion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCentroImposicion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCodigosPostalesXCentroImposicionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCodigosPostalesXCentroImposicionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSucursalByProvincia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProvincia" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSucursalByProvinciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSucursalByProvinciaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCentrosImposicion">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCentrosImposicionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCentrosImposicionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOperativasByUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="psw" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOperativasByUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOperativasByUsuarioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IngresoOR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="psw" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml_Datos" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmarRetiro" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="DiasHastaRetiro" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idFranjaHoraria" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArchivoCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArchivoProceso" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IngresoORResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IngresoORResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IngresoORMultiplesRetiros">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="psw" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml_Datos" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmarRetiro" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArchivoCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArchivoProceso" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IngresoORMultiplesRetirosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IngresoORMultiplesRetirosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DescripcionError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoError" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DescripcionErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DescripcionErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AnularOrdenGenerada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="psw" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdOrdenRetiro" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AnularOrdenGeneradaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AnularOrdenGeneradaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEnvioEstadoActual">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="numeroEnvio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ordenRetiro" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEnvioEstadoActualResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEnvioEstadoActualResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarifar_Envio_Corporativo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PesoTotal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VolumenTotal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPostalOrigen" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPostalDestino" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CantidadPaquetes" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="ValorDeclarado" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cuit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Operativa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarifar_Envio_CorporativoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarifar_Envio_CorporativoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReporteRemTramXNumeroTracking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="numeroTracking" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReporteRemTramXNumeroTrackingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReporteRemTramXNumeroTrackingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+    <s:schema targetNamespace="#Oca_e_Pak/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="List_EnviosSoapIn">
+    <wsdl:part name="parameters" element="tns:List_Envios" />
+  </wsdl:message>
+  <wsdl:message name="List_EnviosSoapOut">
+    <wsdl:part name="parameters" element="tns:List_EnviosResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaSoapIn">
+    <wsdl:part name="parameters" element="tns:Tracking_Pieza" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaSoapOut">
+    <wsdl:part name="parameters" element="tns:Tracking_PiezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaExtendidoSoapIn">
+    <wsdl:part name="parameters" element="tns:Tracking_PiezaExtendido" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaExtendidoSoapOut">
+    <wsdl:part name="parameters" element="tns:Tracking_PiezaExtendidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaNumeroEnvioSoapIn">
+    <wsdl:part name="parameters" element="tns:Tracking_PiezaNumeroEnvio" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaNumeroEnvioSoapOut">
+    <wsdl:part name="parameters" element="tns:Tracking_PiezaNumeroEnvioResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEpackUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEpackUser" />
+  </wsdl:message>
+  <wsdl:message name="GetEpackUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEpackUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserFromLoginDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserFromLoginData" />
+  </wsdl:message>
+  <wsdl:message name="GetUserFromLoginDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserFromLoginDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCentrosImposicionConServiciosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCentrosImposicionConServicios" />
+  </wsdl:message>
+  <wsdl:message name="GetCentrosImposicionConServiciosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCentrosImposicionConServiciosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLoginData" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLoginDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEPackUserForMailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEPackUserForMail" />
+  </wsdl:message>
+  <wsdl:message name="GetEPackUserForMailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEPackUserForMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ordenretiro_CSV2XMLSoapIn">
+    <wsdl:part name="parameters" element="tns:Ordenretiro_CSV2XML" />
+  </wsdl:message>
+  <wsdl:message name="Ordenretiro_CSV2XMLSoapOut">
+    <wsdl:part name="parameters" element="tns:Ordenretiro_CSV2XMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetORResultSoapIn">
+    <wsdl:part name="parameters" element="tns:GetORResult" />
+  </wsdl:message>
+  <wsdl:message name="GetORResultSoapOut">
+    <wsdl:part name="parameters" element="tns:GetORResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProvinciasSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProvincias" />
+  </wsdl:message>
+  <wsdl:message name="GetProvinciasSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProvinciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCodigosPostalesXCentroImposicionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCodigosPostalesXCentroImposicion" />
+  </wsdl:message>
+  <wsdl:message name="GetCodigosPostalesXCentroImposicionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCodigosPostalesXCentroImposicionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSucursalByProvinciaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSucursalByProvincia" />
+  </wsdl:message>
+  <wsdl:message name="GetSucursalByProvinciaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSucursalByProvinciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCentrosImposicionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCentrosImposicion" />
+  </wsdl:message>
+  <wsdl:message name="GetCentrosImposicionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCentrosImposicionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOperativasByUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOperativasByUsuario" />
+  </wsdl:message>
+  <wsdl:message name="GetOperativasByUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOperativasByUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORSoapIn">
+    <wsdl:part name="parameters" element="tns:IngresoOR" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORSoapOut">
+    <wsdl:part name="parameters" element="tns:IngresoORResponse" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORMultiplesRetirosSoapIn">
+    <wsdl:part name="parameters" element="tns:IngresoORMultiplesRetiros" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORMultiplesRetirosSoapOut">
+    <wsdl:part name="parameters" element="tns:IngresoORMultiplesRetirosResponse" />
+  </wsdl:message>
+  <wsdl:message name="DescripcionErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:DescripcionError" />
+  </wsdl:message>
+  <wsdl:message name="DescripcionErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:DescripcionErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="AnularOrdenGeneradaSoapIn">
+    <wsdl:part name="parameters" element="tns:AnularOrdenGenerada" />
+  </wsdl:message>
+  <wsdl:message name="AnularOrdenGeneradaSoapOut">
+    <wsdl:part name="parameters" element="tns:AnularOrdenGeneradaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioEstadoActualSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEnvioEstadoActual" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioEstadoActualSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEnvioEstadoActualResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarifar_Envio_CorporativoSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarifar_Envio_Corporativo" />
+  </wsdl:message>
+  <wsdl:message name="Tarifar_Envio_CorporativoSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarifar_Envio_CorporativoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReporteRemTramXNumeroTrackingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReporteRemTramXNumeroTracking" />
+  </wsdl:message>
+  <wsdl:message name="GetReporteRemTramXNumeroTrackingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReporteRemTramXNumeroTrackingResponse" />
+  </wsdl:message>
+  <wsdl:message name="List_EnviosHttpGetIn">
+    <wsdl:part name="CUIT" type="s:string" />
+    <wsdl:part name="FechaDesde" type="s:string" />
+    <wsdl:part name="FechaHasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="List_EnviosHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaHttpGetIn">
+    <wsdl:part name="NroDocumentoCliente" type="s:string" />
+    <wsdl:part name="CUIT" type="s:string" />
+    <wsdl:part name="Pieza" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaExtendidoHttpGetIn">
+    <wsdl:part name="NroDocumentoCliente" type="s:string" />
+    <wsdl:part name="CUIT" type="s:string" />
+    <wsdl:part name="Pieza" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaExtendidoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaNumeroEnvioHttpGetIn">
+    <wsdl:part name="Pieza" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaNumeroEnvioHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetEpackUserHttpGetIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEpackUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetUserFromLoginDataHttpGetIn">
+    <wsdl:part name="LoginData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserFromLoginDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetCentrosImposicionConServiciosHttpGetIn" />
+  <wsdl:message name="GetCentrosImposicionConServiciosHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginDataHttpGetIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEPackUserForMailHttpGetIn">
+    <wsdl:part name="email" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEPackUserForMailHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ordenretiro_CSV2XMLHttpGetIn">
+    <wsdl:part name="Archivo" type="s:string" />
+    <wsdl:part name="NroCuenta" type="s:string" />
+    <wsdl:part name="Separador" type="s2:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="Ordenretiro_CSV2XMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetORResultHttpGetIn">
+    <wsdl:part name="idCabecera" type="s:string" />
+    <wsdl:part name="Usr" type="s:string" />
+    <wsdl:part name="Psw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetORResultHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetProvinciasHttpGetIn" />
+  <wsdl:message name="GetProvinciasHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetCodigosPostalesXCentroImposicionHttpGetIn">
+    <wsdl:part name="idCentroImposicion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCodigosPostalesXCentroImposicionHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetSucursalByProvinciaHttpGetIn">
+    <wsdl:part name="idProvincia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSucursalByProvinciaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetCentrosImposicionHttpGetIn" />
+  <wsdl:message name="GetCentrosImposicionHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetOperativasByUsuarioHttpGetIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperativasByUsuarioHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORHttpGetIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+    <wsdl:part name="xml_Datos" type="s:string" />
+    <wsdl:part name="ConfirmarRetiro" type="s:string" />
+    <wsdl:part name="DiasHastaRetiro" type="s:string" />
+    <wsdl:part name="idFranjaHoraria" type="s:string" />
+    <wsdl:part name="ArchivoCliente" type="s:string" />
+    <wsdl:part name="ArchivoProceso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORMultiplesRetirosHttpGetIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+    <wsdl:part name="xml_Datos" type="s:string" />
+    <wsdl:part name="ConfirmarRetiro" type="s:string" />
+    <wsdl:part name="ArchivoCliente" type="s:string" />
+    <wsdl:part name="ArchivoProceso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORMultiplesRetirosHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DescripcionErrorHttpGetIn">
+    <wsdl:part name="CodigoError" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DescripcionErrorHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AnularOrdenGeneradaHttpGetIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+    <wsdl:part name="IdOrdenRetiro" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AnularOrdenGeneradaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioEstadoActualHttpGetIn">
+    <wsdl:part name="numeroEnvio" type="s:string" />
+    <wsdl:part name="ordenRetiro" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioEstadoActualHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Tarifar_Envio_CorporativoHttpGetIn">
+    <wsdl:part name="PesoTotal" type="s:string" />
+    <wsdl:part name="VolumenTotal" type="s:string" />
+    <wsdl:part name="CodigoPostalOrigen" type="s:string" />
+    <wsdl:part name="CodigoPostalDestino" type="s:string" />
+    <wsdl:part name="CantidadPaquetes" type="s:string" />
+    <wsdl:part name="ValorDeclarado" type="s:string" />
+    <wsdl:part name="Cuit" type="s:string" />
+    <wsdl:part name="Operativa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarifar_Envio_CorporativoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetReporteRemTramXNumeroTrackingHttpGetIn">
+    <wsdl:part name="numeroTracking" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetReporteRemTramXNumeroTrackingHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="List_EnviosHttpPostIn">
+    <wsdl:part name="CUIT" type="s:string" />
+    <wsdl:part name="FechaDesde" type="s:string" />
+    <wsdl:part name="FechaHasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="List_EnviosHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaHttpPostIn">
+    <wsdl:part name="NroDocumentoCliente" type="s:string" />
+    <wsdl:part name="CUIT" type="s:string" />
+    <wsdl:part name="Pieza" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaExtendidoHttpPostIn">
+    <wsdl:part name="NroDocumentoCliente" type="s:string" />
+    <wsdl:part name="CUIT" type="s:string" />
+    <wsdl:part name="Pieza" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaExtendidoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaNumeroEnvioHttpPostIn">
+    <wsdl:part name="Pieza" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tracking_PiezaNumeroEnvioHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetEpackUserHttpPostIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEpackUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetUserFromLoginDataHttpPostIn">
+    <wsdl:part name="LoginData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserFromLoginDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetCentrosImposicionConServiciosHttpPostIn" />
+  <wsdl:message name="GetCentrosImposicionConServiciosHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginDataHttpPostIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLoginDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEPackUserForMailHttpPostIn">
+    <wsdl:part name="email" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEPackUserForMailHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Ordenretiro_CSV2XMLHttpPostIn">
+    <wsdl:part name="Archivo" type="s:string" />
+    <wsdl:part name="NroCuenta" type="s:string" />
+    <wsdl:part name="Separador" type="s2:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="Ordenretiro_CSV2XMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetORResultHttpPostIn">
+    <wsdl:part name="idCabecera" type="s:string" />
+    <wsdl:part name="Usr" type="s:string" />
+    <wsdl:part name="Psw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetORResultHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetProvinciasHttpPostIn" />
+  <wsdl:message name="GetProvinciasHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetCodigosPostalesXCentroImposicionHttpPostIn">
+    <wsdl:part name="idCentroImposicion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCodigosPostalesXCentroImposicionHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetSucursalByProvinciaHttpPostIn">
+    <wsdl:part name="idProvincia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSucursalByProvinciaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetCentrosImposicionHttpPostIn" />
+  <wsdl:message name="GetCentrosImposicionHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetOperativasByUsuarioHttpPostIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperativasByUsuarioHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORHttpPostIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+    <wsdl:part name="xml_Datos" type="s:string" />
+    <wsdl:part name="ConfirmarRetiro" type="s:string" />
+    <wsdl:part name="DiasHastaRetiro" type="s:string" />
+    <wsdl:part name="idFranjaHoraria" type="s:string" />
+    <wsdl:part name="ArchivoCliente" type="s:string" />
+    <wsdl:part name="ArchivoProceso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORMultiplesRetirosHttpPostIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+    <wsdl:part name="xml_Datos" type="s:string" />
+    <wsdl:part name="ConfirmarRetiro" type="s:string" />
+    <wsdl:part name="ArchivoCliente" type="s:string" />
+    <wsdl:part name="ArchivoProceso" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IngresoORMultiplesRetirosHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="DescripcionErrorHttpPostIn">
+    <wsdl:part name="CodigoError" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DescripcionErrorHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AnularOrdenGeneradaHttpPostIn">
+    <wsdl:part name="usr" type="s:string" />
+    <wsdl:part name="psw" type="s:string" />
+    <wsdl:part name="IdOrdenRetiro" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AnularOrdenGeneradaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioEstadoActualHttpPostIn">
+    <wsdl:part name="numeroEnvio" type="s:string" />
+    <wsdl:part name="ordenRetiro" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEnvioEstadoActualHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Tarifar_Envio_CorporativoHttpPostIn">
+    <wsdl:part name="PesoTotal" type="s:string" />
+    <wsdl:part name="VolumenTotal" type="s:string" />
+    <wsdl:part name="CodigoPostalOrigen" type="s:string" />
+    <wsdl:part name="CodigoPostalDestino" type="s:string" />
+    <wsdl:part name="CantidadPaquetes" type="s:string" />
+    <wsdl:part name="ValorDeclarado" type="s:string" />
+    <wsdl:part name="Cuit" type="s:string" />
+    <wsdl:part name="Operativa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarifar_Envio_CorporativoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetReporteRemTramXNumeroTrackingHttpPostIn">
+    <wsdl:part name="numeroTracking" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetReporteRemTramXNumeroTrackingHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="Oep_TrackingSoap">
+    <wsdl:operation name="List_Envios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dado el CUIT del cliente con un rango de fechas se devuelve una lista con todos los Envíos realizados en dicho período</wsdl:documentation>
+      <wsdl:input message="tns:List_EnviosSoapIn" />
+      <wsdl:output message="tns:List_EnviosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_Pieza">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dado un envio se devuelven todos los eventos</wsdl:documentation>
+      <wsdl:input message="tns:Tracking_PiezaSoapIn" />
+      <wsdl:output message="tns:Tracking_PiezaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaExtendido">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dado un envio se devuelven todos los eventos</wsdl:documentation>
+      <wsdl:input message="tns:Tracking_PiezaExtendidoSoapIn" />
+      <wsdl:output message="tns:Tracking_PiezaExtendidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaNumeroEnvio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Enventos de un envio por CUIP OEP/EPAK</wsdl:documentation>
+      <wsdl:input message="tns:Tracking_PiezaNumeroEnvioSoapIn" />
+      <wsdl:output message="tns:Tracking_PiezaNumeroEnvioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEpackUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve si el usuario existe y a que tiene acceso</wsdl:documentation>
+      <wsdl:input message="tns:GetEpackUserSoapIn" />
+      <wsdl:output message="tns:GetEpackUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFromLoginData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Datos dek Usuario a partir del Hash de Login</wsdl:documentation>
+      <wsdl:input message="tns:GetUserFromLoginDataSoapIn" />
+      <wsdl:output message="tns:GetUserFromLoginDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicionConServicios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los servicios por cada Centros de Imposición existentes.</wsdl:documentation>
+      <wsdl:input message="tns:GetCentrosImposicionConServiciosSoapIn" />
+      <wsdl:output message="tns:GetCentrosImposicionConServiciosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el hashcode con los datos del login de un usuario</wsdl:documentation>
+      <wsdl:input message="tns:GetLoginDataSoapIn" />
+      <wsdl:output message="tns:GetLoginDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEPackUserForMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Pasando el e-mail devuelve si existe y los datos del usuario</wsdl:documentation>
+      <wsdl:input message="tns:GetEPackUserForMailSoapIn" />
+      <wsdl:output message="tns:GetEPackUserForMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ordenretiro_CSV2XML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Convierte un archivo de OR del formato CSV al XML</wsdl:documentation>
+      <wsdl:input message="tns:Ordenretiro_CSV2XMLSoapIn" />
+      <wsdl:output message="tns:Ordenretiro_CSV2XMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetORResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Informe del Proceso de Ingreso de Ordenes de retiro</wsdl:documentation>
+      <wsdl:input message="tns:GetORResultSoapIn" />
+      <wsdl:output message="tns:GetORResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvincias">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de Provincias</wsdl:documentation>
+      <wsdl:input message="tns:GetProvinciasSoapIn" />
+      <wsdl:output message="tns:GetProvinciasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigosPostalesXCentroImposicion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de codigos postales asignados para cada agencia.</wsdl:documentation>
+      <wsdl:input message="tns:GetCodigosPostalesXCentroImposicionSoapIn" />
+      <wsdl:output message="tns:GetCodigosPostalesXCentroImposicionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSucursalByProvincia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de Sucursales X Provincias</wsdl:documentation>
+      <wsdl:input message="tns:GetSucursalByProvinciaSoapIn" />
+      <wsdl:output message="tns:GetSucursalByProvinciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los Centros de Imposición existentes</wsdl:documentation>
+      <wsdl:input message="tns:GetCentrosImposicionSoapIn" />
+      <wsdl:output message="tns:GetCentrosImposicionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperativasByUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de Operativas x Clientes</wsdl:documentation>
+      <wsdl:input message="tns:GetOperativasByUsuarioSoapIn" />
+      <wsdl:output message="tns:GetOperativasByUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresoOR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa el xml con los datos del retiro (Devuelve un dataset con el resultado del proceso.
+ FechaRetiro e IdFranjahoraria solo son necesarios si se confirma el retiro)</wsdl:documentation>
+      <wsdl:input message="tns:IngresoORSoapIn" />
+      <wsdl:output message="tns:IngresoORSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresoORMultiplesRetiros">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa el xml con los datos del retiro acepta OR (Devuelve un dataset con el resultado del proceso.
+ FechaRetiro e IdFranjahoraria sólo son necesarios si se confirma el retiro)</wsdl:documentation>
+      <wsdl:input message="tns:IngresoORMultiplesRetirosSoapIn" />
+      <wsdl:output message="tns:IngresoORMultiplesRetirosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DescripcionError">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la descripción de los codigos de error</wsdl:documentation>
+      <wsdl:input message="tns:DescripcionErrorSoapIn" />
+      <wsdl:output message="tns:DescripcionErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AnularOrdenGenerada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Anulación de Orden de Retiro u Orden de Admisión</wsdl:documentation>
+      <wsdl:input message="tns:AnularOrdenGeneradaSoapIn" />
+      <wsdl:output message="tns:AnularOrdenGeneradaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioEstadoActual">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Detalle de último estado para un envio u orden de retiro</wsdl:documentation>
+      <wsdl:input message="tns:GetEnvioEstadoActualSoapIn" />
+      <wsdl:output message="tns:GetEnvioEstadoActualSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarifar_Envio_Corporativo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Tarifar un Envío Corporativo</wsdl:documentation>
+      <wsdl:input message="tns:Tarifar_Envio_CorporativoSoapIn" />
+      <wsdl:output message="tns:Tarifar_Envio_CorporativoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReporteRemTramXNumeroTracking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los eventos reportados por interfaz para un numero de tracking</wsdl:documentation>
+      <wsdl:input message="tns:GetReporteRemTramXNumeroTrackingSoapIn" />
+      <wsdl:output message="tns:GetReporteRemTramXNumeroTrackingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Oep_TrackingHttpGet">
+    <wsdl:operation name="List_Envios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dado el CUIT del cliente con un rango de fechas se devuelve una lista con todos los Envíos realizados en dicho período</wsdl:documentation>
+      <wsdl:input message="tns:List_EnviosHttpGetIn" />
+      <wsdl:output message="tns:List_EnviosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_Pieza">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dado un envio se devuelven todos los eventos</wsdl:documentation>
+      <wsdl:input message="tns:Tracking_PiezaHttpGetIn" />
+      <wsdl:output message="tns:Tracking_PiezaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaExtendido">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dado un envio se devuelven todos los eventos</wsdl:documentation>
+      <wsdl:input message="tns:Tracking_PiezaExtendidoHttpGetIn" />
+      <wsdl:output message="tns:Tracking_PiezaExtendidoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaNumeroEnvio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Enventos de un envio por CUIP OEP/EPAK</wsdl:documentation>
+      <wsdl:input message="tns:Tracking_PiezaNumeroEnvioHttpGetIn" />
+      <wsdl:output message="tns:Tracking_PiezaNumeroEnvioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEpackUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve si el usuario existe y a que tiene acceso</wsdl:documentation>
+      <wsdl:input message="tns:GetEpackUserHttpGetIn" />
+      <wsdl:output message="tns:GetEpackUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFromLoginData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Datos dek Usuario a partir del Hash de Login</wsdl:documentation>
+      <wsdl:input message="tns:GetUserFromLoginDataHttpGetIn" />
+      <wsdl:output message="tns:GetUserFromLoginDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicionConServicios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los servicios por cada Centros de Imposición existentes.</wsdl:documentation>
+      <wsdl:input message="tns:GetCentrosImposicionConServiciosHttpGetIn" />
+      <wsdl:output message="tns:GetCentrosImposicionConServiciosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el hashcode con los datos del login de un usuario</wsdl:documentation>
+      <wsdl:input message="tns:GetLoginDataHttpGetIn" />
+      <wsdl:output message="tns:GetLoginDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEPackUserForMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Pasando el e-mail devuelve si existe y los datos del usuario</wsdl:documentation>
+      <wsdl:input message="tns:GetEPackUserForMailHttpGetIn" />
+      <wsdl:output message="tns:GetEPackUserForMailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ordenretiro_CSV2XML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Convierte un archivo de OR del formato CSV al XML</wsdl:documentation>
+      <wsdl:input message="tns:Ordenretiro_CSV2XMLHttpGetIn" />
+      <wsdl:output message="tns:Ordenretiro_CSV2XMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetORResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Informe del Proceso de Ingreso de Ordenes de retiro</wsdl:documentation>
+      <wsdl:input message="tns:GetORResultHttpGetIn" />
+      <wsdl:output message="tns:GetORResultHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvincias">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de Provincias</wsdl:documentation>
+      <wsdl:input message="tns:GetProvinciasHttpGetIn" />
+      <wsdl:output message="tns:GetProvinciasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigosPostalesXCentroImposicion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de codigos postales asignados para cada agencia.</wsdl:documentation>
+      <wsdl:input message="tns:GetCodigosPostalesXCentroImposicionHttpGetIn" />
+      <wsdl:output message="tns:GetCodigosPostalesXCentroImposicionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSucursalByProvincia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de Sucursales X Provincias</wsdl:documentation>
+      <wsdl:input message="tns:GetSucursalByProvinciaHttpGetIn" />
+      <wsdl:output message="tns:GetSucursalByProvinciaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los Centros de Imposición existentes</wsdl:documentation>
+      <wsdl:input message="tns:GetCentrosImposicionHttpGetIn" />
+      <wsdl:output message="tns:GetCentrosImposicionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperativasByUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de Operativas x Clientes</wsdl:documentation>
+      <wsdl:input message="tns:GetOperativasByUsuarioHttpGetIn" />
+      <wsdl:output message="tns:GetOperativasByUsuarioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresoOR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa el xml con los datos del retiro (Devuelve un dataset con el resultado del proceso.
+ FechaRetiro e IdFranjahoraria solo son necesarios si se confirma el retiro)</wsdl:documentation>
+      <wsdl:input message="tns:IngresoORHttpGetIn" />
+      <wsdl:output message="tns:IngresoORHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresoORMultiplesRetiros">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa el xml con los datos del retiro acepta OR (Devuelve un dataset con el resultado del proceso.
+ FechaRetiro e IdFranjahoraria sólo son necesarios si se confirma el retiro)</wsdl:documentation>
+      <wsdl:input message="tns:IngresoORMultiplesRetirosHttpGetIn" />
+      <wsdl:output message="tns:IngresoORMultiplesRetirosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DescripcionError">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la descripción de los codigos de error</wsdl:documentation>
+      <wsdl:input message="tns:DescripcionErrorHttpGetIn" />
+      <wsdl:output message="tns:DescripcionErrorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AnularOrdenGenerada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Anulación de Orden de Retiro u Orden de Admisión</wsdl:documentation>
+      <wsdl:input message="tns:AnularOrdenGeneradaHttpGetIn" />
+      <wsdl:output message="tns:AnularOrdenGeneradaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioEstadoActual">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Detalle de último estado para un envio u orden de retiro</wsdl:documentation>
+      <wsdl:input message="tns:GetEnvioEstadoActualHttpGetIn" />
+      <wsdl:output message="tns:GetEnvioEstadoActualHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarifar_Envio_Corporativo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Tarifar un Envío Corporativo</wsdl:documentation>
+      <wsdl:input message="tns:Tarifar_Envio_CorporativoHttpGetIn" />
+      <wsdl:output message="tns:Tarifar_Envio_CorporativoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReporteRemTramXNumeroTracking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los eventos reportados por interfaz para un numero de tracking</wsdl:documentation>
+      <wsdl:input message="tns:GetReporteRemTramXNumeroTrackingHttpGetIn" />
+      <wsdl:output message="tns:GetReporteRemTramXNumeroTrackingHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Oep_TrackingHttpPost">
+    <wsdl:operation name="List_Envios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dado el CUIT del cliente con un rango de fechas se devuelve una lista con todos los Envíos realizados en dicho período</wsdl:documentation>
+      <wsdl:input message="tns:List_EnviosHttpPostIn" />
+      <wsdl:output message="tns:List_EnviosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_Pieza">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dado un envio se devuelven todos los eventos</wsdl:documentation>
+      <wsdl:input message="tns:Tracking_PiezaHttpPostIn" />
+      <wsdl:output message="tns:Tracking_PiezaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaExtendido">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dado un envio se devuelven todos los eventos</wsdl:documentation>
+      <wsdl:input message="tns:Tracking_PiezaExtendidoHttpPostIn" />
+      <wsdl:output message="tns:Tracking_PiezaExtendidoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaNumeroEnvio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Enventos de un envio por CUIP OEP/EPAK</wsdl:documentation>
+      <wsdl:input message="tns:Tracking_PiezaNumeroEnvioHttpPostIn" />
+      <wsdl:output message="tns:Tracking_PiezaNumeroEnvioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEpackUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve si el usuario existe y a que tiene acceso</wsdl:documentation>
+      <wsdl:input message="tns:GetEpackUserHttpPostIn" />
+      <wsdl:output message="tns:GetEpackUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFromLoginData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Datos dek Usuario a partir del Hash de Login</wsdl:documentation>
+      <wsdl:input message="tns:GetUserFromLoginDataHttpPostIn" />
+      <wsdl:output message="tns:GetUserFromLoginDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicionConServicios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los servicios por cada Centros de Imposición existentes.</wsdl:documentation>
+      <wsdl:input message="tns:GetCentrosImposicionConServiciosHttpPostIn" />
+      <wsdl:output message="tns:GetCentrosImposicionConServiciosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el hashcode con los datos del login de un usuario</wsdl:documentation>
+      <wsdl:input message="tns:GetLoginDataHttpPostIn" />
+      <wsdl:output message="tns:GetLoginDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEPackUserForMail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Pasando el e-mail devuelve si existe y los datos del usuario</wsdl:documentation>
+      <wsdl:input message="tns:GetEPackUserForMailHttpPostIn" />
+      <wsdl:output message="tns:GetEPackUserForMailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ordenretiro_CSV2XML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Convierte un archivo de OR del formato CSV al XML</wsdl:documentation>
+      <wsdl:input message="tns:Ordenretiro_CSV2XMLHttpPostIn" />
+      <wsdl:output message="tns:Ordenretiro_CSV2XMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetORResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Informe del Proceso de Ingreso de Ordenes de retiro</wsdl:documentation>
+      <wsdl:input message="tns:GetORResultHttpPostIn" />
+      <wsdl:output message="tns:GetORResultHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvincias">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de Provincias</wsdl:documentation>
+      <wsdl:input message="tns:GetProvinciasHttpPostIn" />
+      <wsdl:output message="tns:GetProvinciasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigosPostalesXCentroImposicion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de codigos postales asignados para cada agencia.</wsdl:documentation>
+      <wsdl:input message="tns:GetCodigosPostalesXCentroImposicionHttpPostIn" />
+      <wsdl:output message="tns:GetCodigosPostalesXCentroImposicionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSucursalByProvincia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de Sucursales X Provincias</wsdl:documentation>
+      <wsdl:input message="tns:GetSucursalByProvinciaHttpPostIn" />
+      <wsdl:output message="tns:GetSucursalByProvinciaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los Centros de Imposición existentes</wsdl:documentation>
+      <wsdl:input message="tns:GetCentrosImposicionHttpPostIn" />
+      <wsdl:output message="tns:GetCentrosImposicionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperativasByUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve Listado de Operativas x Clientes</wsdl:documentation>
+      <wsdl:input message="tns:GetOperativasByUsuarioHttpPostIn" />
+      <wsdl:output message="tns:GetOperativasByUsuarioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresoOR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa el xml con los datos del retiro (Devuelve un dataset con el resultado del proceso.
+ FechaRetiro e IdFranjahoraria solo son necesarios si se confirma el retiro)</wsdl:documentation>
+      <wsdl:input message="tns:IngresoORHttpPostIn" />
+      <wsdl:output message="tns:IngresoORHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresoORMultiplesRetiros">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ingresa el xml con los datos del retiro acepta OR (Devuelve un dataset con el resultado del proceso.
+ FechaRetiro e IdFranjahoraria sólo son necesarios si se confirma el retiro)</wsdl:documentation>
+      <wsdl:input message="tns:IngresoORMultiplesRetirosHttpPostIn" />
+      <wsdl:output message="tns:IngresoORMultiplesRetirosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DescripcionError">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la descripción de los codigos de error</wsdl:documentation>
+      <wsdl:input message="tns:DescripcionErrorHttpPostIn" />
+      <wsdl:output message="tns:DescripcionErrorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AnularOrdenGenerada">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Anulación de Orden de Retiro u Orden de Admisión</wsdl:documentation>
+      <wsdl:input message="tns:AnularOrdenGeneradaHttpPostIn" />
+      <wsdl:output message="tns:AnularOrdenGeneradaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioEstadoActual">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Detalle de último estado para un envio u orden de retiro</wsdl:documentation>
+      <wsdl:input message="tns:GetEnvioEstadoActualHttpPostIn" />
+      <wsdl:output message="tns:GetEnvioEstadoActualHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarifar_Envio_Corporativo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Tarifar un Envío Corporativo</wsdl:documentation>
+      <wsdl:input message="tns:Tarifar_Envio_CorporativoHttpPostIn" />
+      <wsdl:output message="tns:Tarifar_Envio_CorporativoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReporteRemTramXNumeroTracking">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los eventos reportados por interfaz para un numero de tracking</wsdl:documentation>
+      <wsdl:input message="tns:GetReporteRemTramXNumeroTrackingHttpPostIn" />
+      <wsdl:output message="tns:GetReporteRemTramXNumeroTrackingHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Oep_TrackingSoap" type="tns:Oep_TrackingSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="List_Envios">
+      <soap:operation soapAction="#Oca_e_Pak/List_Envios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_Pieza">
+      <soap:operation soapAction="#Oca_e_Pak/Tracking_Pieza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaExtendido">
+      <soap:operation soapAction="#Oca_e_Pak/Tracking_PiezaExtendido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaNumeroEnvio">
+      <soap:operation soapAction="#Oca_e_Pak/Tracking_PiezaNumeroEnvio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEpackUser">
+      <soap:operation soapAction="#Oca_e_Pak/GetEpackUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFromLoginData">
+      <soap:operation soapAction="#Oca_e_Pak/GetUserFromLoginData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicionConServicios">
+      <soap:operation soapAction="#Oca_e_Pak/GetCentrosImposicionConServicios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginData">
+      <soap:operation soapAction="#Oca_e_Pak/GetLoginData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEPackUserForMail">
+      <soap:operation soapAction="#Oca_e_Pak/GetEPackUserForMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ordenretiro_CSV2XML">
+      <soap:operation soapAction="#Oca_e_Pak/Ordenretiro_CSV2XML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetORResult">
+      <soap:operation soapAction="#Oca_e_Pak/GetORResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvincias">
+      <soap:operation soapAction="#Oca_e_Pak/GetProvincias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigosPostalesXCentroImposicion">
+      <soap:operation soapAction="#Oca_e_Pak/GetCodigosPostalesXCentroImposicion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSucursalByProvincia">
+      <soap:operation soapAction="#Oca_e_Pak/GetSucursalByProvincia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicion">
+      <soap:operation soapAction="#Oca_e_Pak/GetCentrosImposicion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperativasByUsuario">
+      <soap:operation soapAction="#Oca_e_Pak/GetOperativasByUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresoOR">
+      <soap:operation soapAction="#Oca_e_Pak/IngresoOR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresoORMultiplesRetiros">
+      <soap:operation soapAction="#Oca_e_Pak/IngresoORMultiplesRetiros" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DescripcionError">
+      <soap:operation soapAction="#Oca_e_Pak/DescripcionError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnularOrdenGenerada">
+      <soap:operation soapAction="#Oca_e_Pak/AnularOrdenGenerada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioEstadoActual">
+      <soap:operation soapAction="#Oca_e_Pak/GetEnvioEstadoActual" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarifar_Envio_Corporativo">
+      <soap:operation soapAction="#Oca_e_Pak/Tarifar_Envio_Corporativo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReporteRemTramXNumeroTracking">
+      <soap:operation soapAction="#Oca_e_Pak/GetReporteRemTramXNumeroTracking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Oep_TrackingSoap12" type="tns:Oep_TrackingSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="List_Envios">
+      <soap12:operation soapAction="#Oca_e_Pak/List_Envios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_Pieza">
+      <soap12:operation soapAction="#Oca_e_Pak/Tracking_Pieza" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaExtendido">
+      <soap12:operation soapAction="#Oca_e_Pak/Tracking_PiezaExtendido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaNumeroEnvio">
+      <soap12:operation soapAction="#Oca_e_Pak/Tracking_PiezaNumeroEnvio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEpackUser">
+      <soap12:operation soapAction="#Oca_e_Pak/GetEpackUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFromLoginData">
+      <soap12:operation soapAction="#Oca_e_Pak/GetUserFromLoginData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicionConServicios">
+      <soap12:operation soapAction="#Oca_e_Pak/GetCentrosImposicionConServicios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginData">
+      <soap12:operation soapAction="#Oca_e_Pak/GetLoginData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEPackUserForMail">
+      <soap12:operation soapAction="#Oca_e_Pak/GetEPackUserForMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ordenretiro_CSV2XML">
+      <soap12:operation soapAction="#Oca_e_Pak/Ordenretiro_CSV2XML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetORResult">
+      <soap12:operation soapAction="#Oca_e_Pak/GetORResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvincias">
+      <soap12:operation soapAction="#Oca_e_Pak/GetProvincias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigosPostalesXCentroImposicion">
+      <soap12:operation soapAction="#Oca_e_Pak/GetCodigosPostalesXCentroImposicion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSucursalByProvincia">
+      <soap12:operation soapAction="#Oca_e_Pak/GetSucursalByProvincia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicion">
+      <soap12:operation soapAction="#Oca_e_Pak/GetCentrosImposicion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperativasByUsuario">
+      <soap12:operation soapAction="#Oca_e_Pak/GetOperativasByUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresoOR">
+      <soap12:operation soapAction="#Oca_e_Pak/IngresoOR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresoORMultiplesRetiros">
+      <soap12:operation soapAction="#Oca_e_Pak/IngresoORMultiplesRetiros" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DescripcionError">
+      <soap12:operation soapAction="#Oca_e_Pak/DescripcionError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnularOrdenGenerada">
+      <soap12:operation soapAction="#Oca_e_Pak/AnularOrdenGenerada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioEstadoActual">
+      <soap12:operation soapAction="#Oca_e_Pak/GetEnvioEstadoActual" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarifar_Envio_Corporativo">
+      <soap12:operation soapAction="#Oca_e_Pak/Tarifar_Envio_Corporativo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReporteRemTramXNumeroTracking">
+      <soap12:operation soapAction="#Oca_e_Pak/GetReporteRemTramXNumeroTracking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Oep_TrackingHttpGet" type="tns:Oep_TrackingHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="List_Envios">
+      <http:operation location="/List_Envios" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_Pieza">
+      <http:operation location="/Tracking_Pieza" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaExtendido">
+      <http:operation location="/Tracking_PiezaExtendido" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaNumeroEnvio">
+      <http:operation location="/Tracking_PiezaNumeroEnvio" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEpackUser">
+      <http:operation location="/GetEpackUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFromLoginData">
+      <http:operation location="/GetUserFromLoginData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicionConServicios">
+      <http:operation location="/GetCentrosImposicionConServicios" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginData">
+      <http:operation location="/GetLoginData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEPackUserForMail">
+      <http:operation location="/GetEPackUserForMail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ordenretiro_CSV2XML">
+      <http:operation location="/Ordenretiro_CSV2XML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetORResult">
+      <http:operation location="/GetORResult" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvincias">
+      <http:operation location="/GetProvincias" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigosPostalesXCentroImposicion">
+      <http:operation location="/GetCodigosPostalesXCentroImposicion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSucursalByProvincia">
+      <http:operation location="/GetSucursalByProvincia" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicion">
+      <http:operation location="/GetCentrosImposicion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperativasByUsuario">
+      <http:operation location="/GetOperativasByUsuario" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresoOR">
+      <http:operation location="/IngresoOR" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresoORMultiplesRetiros">
+      <http:operation location="/IngresoORMultiplesRetiros" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DescripcionError">
+      <http:operation location="/DescripcionError" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnularOrdenGenerada">
+      <http:operation location="/AnularOrdenGenerada" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioEstadoActual">
+      <http:operation location="/GetEnvioEstadoActual" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarifar_Envio_Corporativo">
+      <http:operation location="/Tarifar_Envio_Corporativo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReporteRemTramXNumeroTracking">
+      <http:operation location="/GetReporteRemTramXNumeroTracking" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Oep_TrackingHttpPost" type="tns:Oep_TrackingHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="List_Envios">
+      <http:operation location="/List_Envios" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_Pieza">
+      <http:operation location="/Tracking_Pieza" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaExtendido">
+      <http:operation location="/Tracking_PiezaExtendido" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tracking_PiezaNumeroEnvio">
+      <http:operation location="/Tracking_PiezaNumeroEnvio" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEpackUser">
+      <http:operation location="/GetEpackUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserFromLoginData">
+      <http:operation location="/GetUserFromLoginData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicionConServicios">
+      <http:operation location="/GetCentrosImposicionConServicios" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginData">
+      <http:operation location="/GetLoginData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEPackUserForMail">
+      <http:operation location="/GetEPackUserForMail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ordenretiro_CSV2XML">
+      <http:operation location="/Ordenretiro_CSV2XML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetORResult">
+      <http:operation location="/GetORResult" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvincias">
+      <http:operation location="/GetProvincias" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigosPostalesXCentroImposicion">
+      <http:operation location="/GetCodigosPostalesXCentroImposicion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSucursalByProvincia">
+      <http:operation location="/GetSucursalByProvincia" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCentrosImposicion">
+      <http:operation location="/GetCentrosImposicion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperativasByUsuario">
+      <http:operation location="/GetOperativasByUsuario" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresoOR">
+      <http:operation location="/IngresoOR" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresoORMultiplesRetiros">
+      <http:operation location="/IngresoORMultiplesRetiros" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DescripcionError">
+      <http:operation location="/DescripcionError" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnularOrdenGenerada">
+      <http:operation location="/AnularOrdenGenerada" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnvioEstadoActual">
+      <http:operation location="/GetEnvioEstadoActual" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarifar_Envio_Corporativo">
+      <http:operation location="/Tarifar_Envio_Corporativo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReporteRemTramXNumeroTracking">
+      <http:operation location="/GetReporteRemTramXNumeroTracking" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Oep_Tracking">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicios Web Públicos de OCA Express Pak</wsdl:documentation>
+    <wsdl:port name="Oep_TrackingSoap" binding="tns:Oep_TrackingSoap">
+      <soap:address location="http://webservice.oca.com.ar/epak_tracking/Oep_TrackEPak.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Oep_TrackingSoap12" binding="tns:Oep_TrackingSoap12">
+      <soap12:address location="http://webservice.oca.com.ar/epak_tracking/Oep_TrackEPak.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Oep_TrackingHttpGet" binding="tns:Oep_TrackingHttpGet">
+      <http:address location="http://webservice.oca.com.ar/epak_tracking/Oep_TrackEPak.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Oep_TrackingHttpPost" binding="tns:Oep_TrackingHttpPost">
+      <http:address location="http://webservice.oca.com.ar/epak_tracking/Oep_TrackEPak.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
