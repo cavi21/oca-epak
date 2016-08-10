@@ -19,7 +19,8 @@ module Oca
         method = :get_epack_user
         opts = { USER_STRING => username, PASSWORD_STRING => password }
         response = client.call(method, message: opts)
-        parse_results_table(response, method).first[:existe] == ONE_STRING
+
+        parse_result(response, method)[:existe] == ONE_STRING
       end
 
       # Creates a Pickup Order, which lets OCA know you want to make a delivery.
@@ -69,6 +70,22 @@ module Oca
         parse_result(response, :ingreso_or_multiples_retiros)
       end
 
+      # Returns the information about a Delivery Order using the :order_operation_code
+      #
+      # @param [String] Value at "CodigoOperacion" when creating a Delivery Order
+      # @return [Hash, nil]
+      def get_order_result(order_operation_code)
+        method = :get_or_result
+        message = {
+          USER_STRING.capitalize => username,
+          PASSWORD_STRING.capitalize => password,
+          "idCabecera" => order_operation_code.to_s
+        }
+
+        response = client.call(method, message: message)
+        parse_result(response, method)
+      end
+
       # Get rates and delivery estimate for a shipment
       #
       # @param [Hash] opts
@@ -93,7 +110,26 @@ module Oca
                     "Cuit" => opts[:cuit],
                     "Operativa" => opts[:operation_code] }
         response = client.call(method, message: message)
-        parse_results_table(response, method).first
+        parse_result(response, method)
+      end
+
+      # Returns the actual status and other info about the delivery if exists
+      # and is not cancelled
+      #
+      # @param [Hash] opts
+      # @option opts [String] :tracking_code Tracking Code
+      # @option opts [String] :delivery_order_id ID of the Delivery Order
+      # @return [Hash, nil] Contains delivery information as prices, insurance
+      # package sice and actual status information
+      def get_delivery_status(opts = {})
+        method = :get_envio_estado_actual
+        message = {}.tap do |hash|
+          hash["numeroEnvio"] = opts[:tracking_code].to_s if opts[:tracking_code]
+          hash["ordenRetiro"] = opts[:delivery_order_id].to_s if opts[:delivery_order_id]
+        end
+
+        response = client.call(method, message: message)
+        parse_result(response, method)
       end
 
       # Returns all existing Taxation Centers
@@ -102,7 +138,7 @@ module Oca
       def taxation_centers
         method = :get_centros_imposicion
         response = client.call(method)
-        parse_results_table(response, method)
+        parse_result(response, method)
       end
 
       # Returns all operation codes
@@ -110,9 +146,12 @@ module Oca
       # @return [Array, nil] Returns all operation codes available for the user
       def get_operation_codes
         method = :get_operativas_by_usuario
-        opts = { USER_STRING => username, PASSWORD_STRING => password }
-        response = client.call(method, message: opts)
-        parse_results_table(response, method)
+        message = {
+          USER_STRING => username,
+          PASSWORD_STRING => password
+        }
+        response = client.call(method, message: message)
+        parse_result(response, method)
       end
 
       # Given a client's CUIT with a range of dates, returns a list with
@@ -122,22 +161,30 @@ module Oca
       # @param [String] "From date" in DD-MM-YYYY format
       # @param [String] "To date" in DD-MM-YYYY format
       # @return [Array, nil] Contains an array of hashes with NroProducto and NumeroEnvio
-      def list_shipments(cuit, from_date, to_date)
+      def list_shipments(opts = {})
+        seconds_in_a_day = 86400
+        since_date = opts[:since_date] || (Time.now - 7 * seconds_in_a_day).strftime("%d-%m-%Y")
+        until_date = opts[:until_date] || Time.now.strftime("%d-%m-%Y")
+
         method = :list_envios
-        opts = { "CUIT" => cuit, "FechaDesde" => from_date,
-                 "FechaHasta" => to_date }
-        response = client.call(method, message: opts)
-        parse_results_table(response, method)
+        message = {
+          "CUIT" => opts[:cuit],
+          "FechaDesde" => since_date,
+          "FechaHasta" => until_date
+        }
+
+        response = client.call(method, message: message)
+        parse_result(response, method)
       end
 
       # Returns all provinces in Argentina
       #
       # @return [Array, nil] Provinces in Argentina with their ID and name as a Hash
       def provinces
-        response = client.call(:get_provincias)
-        if body = response.body[:get_provincias_response]
-          body[:get_provincias_result][:provincias][:provincia]
-        end
+        method = :get_provincias
+        response = client.call(method)
+
+        parse_result(response, method)
       end
     end
   end

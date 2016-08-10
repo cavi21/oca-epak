@@ -17,10 +17,12 @@ module Oca
       # @return [String] HTML
       def get_html_de_etiquetas_por_orden_or_numero_envio(opts = {})
         method = :get_html_de_etiquetas_por_orden_or_numero_envio
-        opts = { "idOrdenRetiro" => opts[:id_orden_retiro],
-                 "nroEnvio" => opts[:nro_envio] }
+        opts = {
+          "idOrdenRetiro" => opts[:id_orden_retiro],
+          "nroEnvio" => opts[:nro_envio]
+        }
         response = client.call(method, message: opts)
-        parse_result(response, method)
+        parse_body(response, method)
       end
 
       # Returns the PDF (Base64 encoded) String for a label
@@ -38,7 +40,8 @@ module Oca
           "logisticaInversa" => opts.fetch(:logistica_inversa, FALSE_STRING).to_s
         }
         response = client.call(method, message: opts)
-        parse_result(response, method)
+
+        parse_body(response, method)
       rescue Savon::SOAPFault => error
         msg = "Oca WS responded with:\n#{error.http.code}\n#{error}"
         raise Oca::Errors::BadRequest.new(msg)

@@ -1,5 +1,5 @@
 RSpec.describe Oca::Epak::Client do
-  let(:cuit) { "30-99999999-7" }
+  let(:cuit) { "30-99999999-5" }
   let(:username) { "hey@you.com" }
   let(:password) { "123456" }
   let(:invalid_password) { "654321" }
@@ -23,58 +23,66 @@ RSpec.describe Oca::Epak::Client do
   end
 
   describe "#get_operation_codes" do
-    context "valid user + password" do
-      let(:expected_result) do
-        [{ :id_operativa=>"259563",
-          :descripcion=>"259563 - ENVIOS DE SUCURSAL A SUCURSAL",
-          :con_volumen=>false,
-          :con_valor_declarado=>false,
-          :a_sucursal=>false,
-          :"@diffgr:id"=>"Table1",
-          :"@msdata:row_order"=>"0" }]
+    context "valid user" do
+      let(:expected_contained_result) do
+        {
+          :id_operativa=>"264538",
+          :descripcion=>"264538 - PAS STD C/SEGURO",
+          :con_volumen=>true,
+          :con_valor_declarado=>true,
+          :a_sucursal=>true,
+          :"@diffgr:id"=>"Table2",
+          :"@msdata:row_order"=>"1"
+        }
       end
 
       it "returns all the operations available for the user" do
         VCR.use_cassette("get_operation_codes") do
           result = subject.get_operation_codes
-          expect(result).to eql(expected_result)
+          expect(result).to include(expected_contained_result)
         end
       end
     end
 
     context "invalid user" do
       it "raises when they attempt to get operation codes" do
+        subject.password = invalid_password
+
         VCR.use_cassette("get_operation_codes_bad_request") do
-          expect do
-            subject.get_operation_codes
-          end.to raise_exception(Oca::Errors::BadRequest)
+          result = subject.get_operation_codes
+          expect(result).to be_nil
         end
       end
     end
   end
 
   describe "#get_shipping_rate" do
-    let(:weight) { "50" }
+    let(:weight) { "0.5" }
     let(:volume) { "0.027" }
     let(:origin_zip_code) { "1646" }
     let(:destination_zip_code) { "2000" }
     let(:package_quantity) { "1" }
-    let(:operation_code) { "77790" }
+    let(:operation_code) { "264538" }
     let(:declared_value) { "100" }
 
     it "returns the shipping price and estimated days until delivery" do
-      opts = { total_weight: weight, total_volume: volume,
+      opts = {
+        total_weight: weight,
+        total_volume: volume,
         origin_zip_code: origin_zip_code,
         destination_zip_code: destination_zip_code,
-        declared_value: declared_value, package_quantity: package_quantity,
-        cuit: cuit, operation_code: operation_code }
+        declared_value: declared_value,
+        package_quantity: package_quantity,
+        cuit: cuit,
+        operation_code: operation_code
+      }
 
       VCR.use_cassette("get_shipping_rate") do
         response = subject.get_shipping_rate(opts)
         expect(response).to be_a Hash
-        expect(response[:precio]).to eql("396.6900")
-        expect(response[:ambito]).to eql("Nacional 1")
-        expect(response[:plazo_entrega]).to eql("9")
+        expect(response[:precio]).to eql("132.3700")
+        expect(response[:ambito]).to eql("Regional")
+        expect(response[:plazo_entrega]).to eql("3")
       end
     end
   end
