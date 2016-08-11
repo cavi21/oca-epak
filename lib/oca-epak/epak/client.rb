@@ -70,6 +70,22 @@ module Oca
         parse_result(response, :ingreso_or_multiples_retiros)
       end
 
+      # Cancel a Delivery Order
+      #
+      # @param [String] The ID of the Delivery Order
+      # @return [Hash] { id_result: "", mensaje: "" }
+      def cancel_delivery_order(delivery_order_id)
+        method = :anular_orden_generada
+        message = {
+          USER_STRING => username,
+          PASSWORD_STRING => password,
+          "IdOrdenRetiro" => delivery_order_id.to_s
+        }
+
+        response = client.call(method, message: message)
+        parse_result(response, method)
+      end
+
       # Returns the information about a Delivery Order using the :order_operation_code
       #
       # @param [String] Value at "CodigoOperacion" when creating a Delivery Order
