@@ -17,9 +17,12 @@ module Oca
       # @return [Boolean] Whether the credentials entered are valid or not
       def check_credentials
         method = :get_epack_user
-        opts = { USER_STRING => username, PASSWORD_STRING => password }
-        response = client.call(method, message: opts)
+        message = {
+          USER_STRING => username,
+          PASSWORD_STRING => password
+        }
 
+        response = client.call(method, message: message)
         parse_result(response, method)[:existe] == ONE_STRING
       end
 
@@ -39,16 +42,21 @@ module Oca
         pickup_range = opts.fetch(:pickup_range, ONE_STRING)
         rendered_xml = opts[:pickup_data].to_xml
 
-        message = { USER_STRING => username, PASSWORD_STRING => password,
-                    "xml_Datos" => rendered_xml,
-                    "ConfirmarRetiro" => confirm_pickup.to_s,
-                    "DiasHastaRetiro" => days_to_pickup,
-                    "idFranjaHoraria" => pickup_range }
-        response = client.call(:ingreso_or, message: message)
-        parse_result(response, :ingreso_or)
+        method = :ingreso_or
+        message = {
+          USER_STRING => username,
+          PASSWORD_STRING => password,
+          "xml_Datos" => rendered_xml,
+          "ConfirmarRetiro" => confirm_pickup.to_s,
+          "DiasHastaRetiro" => days_to_pickup,
+          "idFranjaHoraria" => pickup_range
+        }
+
+        response = client.call(method, message: message)
+        parse_result(response, method)
       end
 
-      # Creates multiple Pickups or Admisions (Deliveries) Orders, which lets OCA know you want to
+      # Creates multiple Pickups or Admissions (Deliveries) Orders, which lets OCA know you want to
       # make some deliveries grouped by origin.
       #
       # @see https://github.com/ombulabs/oca-epak/blob/master/doc/OCAWebServices.pdf
@@ -62,12 +70,16 @@ module Oca
         confirm_deliveries = opts.fetch(:confirm_deliveries, FALSE_STRING)
         rendered_xml = opts[:deliveries_data].to_xml
 
-        message = { USER_STRING => username, PASSWORD_STRING => password,
-                    "xml_Datos" => rendered_xml,
-                    "ConfirmarRetiro" => confirm_deliveries.to_s }
+        method = :ingreso_or_multiples_retiros
+        message = {
+          USER_STRING => username,
+          PASSWORD_STRING => password,
+          "xml_Datos" => rendered_xml,
+          "ConfirmarRetiro" => confirm_deliveries.to_s
+        }
 
-        response = client.call(:ingreso_or_multiples_retiros, message: message)
-        parse_result(response, :ingreso_or_multiples_retiros)
+        response = client.call(method, message: message)
+        parse_result(response, method)
       end
 
       # Cancel a Delivery Order
@@ -117,14 +129,17 @@ module Oca
       # @return [Hash, nil] Contains Total Price, Delivery Estimate
       def get_shipping_rate(opts = {})
         method = :tarifar_envio_corporativo
-        message = { "PesoTotal" => opts[:total_weight],
-                    "VolumenTotal" => opts[:total_volume],
-                    "CodigoPostalOrigen" => opts[:origin_zip_code],
-                    "CodigoPostalDestino" => opts[:destination_zip_code],
-                    "ValorDeclarado" => opts[:declared_value],
-                    "CantidadPaquetes" => opts[:package_quantity],
-                    "Cuit" => opts[:cuit],
-                    "Operativa" => opts[:operation_code] }
+        message = {
+          "PesoTotal" => opts[:total_weight],
+          "VolumenTotal" => opts[:total_volume],
+          "CodigoPostalOrigen" => opts[:origin_zip_code],
+          "CodigoPostalDestino" => opts[:destination_zip_code],
+          "ValorDeclarado" => opts[:declared_value],
+          "CantidadPaquetes" => opts[:package_quantity],
+          "Cuit" => opts[:cuit],
+          "Operativa" => opts[:operation_code]
+        }
+
         response = client.call(method, message: message)
         parse_result(response, method)
       end
@@ -153,8 +168,19 @@ module Oca
       # @return [Array, nil] Information for all the Oca Taxation Centers
       def taxation_centers
         method = :get_centros_imposicion
+
         response = client.call(method)
         parse_result(response, method)
+      end
+
+      # Returns all Taxation Centers with their services
+      #
+      # @return [Array, nil] Information for all the Oca Taxation Centers
+      def taxation_centers_with_services
+        method = :get_centros_imposicion_con_servicios
+
+        response = client.call(method)
+        parse_body(response, method)[:centros_de_imposicion][:centro]
       end
 
       # Returns all operation codes
@@ -166,6 +192,7 @@ module Oca
           USER_STRING => username,
           PASSWORD_STRING => password
         }
+
         response = client.call(method, message: message)
         parse_result(response, method)
       end
@@ -198,8 +225,8 @@ module Oca
       # @return [Array, nil] Provinces in Argentina with their ID and name as a Hash
       def provinces
         method = :get_provincias
-        response = client.call(method)
 
+        response = client.call(method)
         parse_result(response, method)
       end
     end

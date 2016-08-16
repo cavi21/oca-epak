@@ -20,7 +20,7 @@ module Oca
 
       if results_key == :errores
         error = payload[results_key][results_topic_keys.first]
-        raise Oca::Errors::BadRequest.new("Oca WS responded with:\n#{error.description}")
+        raise Oca::Errors::BadRequest.new("Oca WS responded with:\n#{error[:description]}")
       elsif body = payload[results_key]
         if results_topic_keys.length > 1
           results_topic_keys.each_with_object({}) do |key, results|
